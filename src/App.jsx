@@ -5,14 +5,22 @@ import { useState } from "react";
 
 export default function App() {
   const [jobs, setJobs] = useState(data);
-  console.log(jobs);
+
+  let tags = [];
+
+  let jobsWithTags = jobs.filter((job) => {
+    let jobValues = Object.values(job).flat();
+    return tags.every((tag) => jobValues.includes(tag));
+  });
+
+  console.log(jobsWithTags);
 
   return (
     <>
       <header className="header"></header>
       <main className="main-container">
         <div className="cards-container">
-          {jobs.map((job) => {
+          {jobsWithTags.map((job) => {
             const tags = [job.role, job.level, ...job.languages, ...job.tools];
             return (
               <Card
