@@ -8,6 +8,7 @@ export default function Card({
   location,
   tags,
   logo,
+  handleTagClick,
 }) {
   return (
     <div className="card">
@@ -42,7 +43,7 @@ export default function Card({
         <ul className="card__tags">
           {tags.map((tag, index) => {
             return (
-              <li key={index} className="card__tag">
+              <li key={index} className="card__tag" onClick={handleTagClick}>
                 {tag}
               </li>
             );
