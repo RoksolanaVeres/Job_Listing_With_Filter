@@ -1,4 +1,6 @@
 export default function Card({
+  filterTags,
+  setFilterTags,
   company,
   contract,
   featured,
@@ -10,6 +12,12 @@ export default function Card({
   logo,
   handleTagClick,
 }) {
+  function handleTagClick(tag) {
+    if (filterTags.indexOf(tag) === -1) {
+      setFilterTags((currentTags) => [...currentTags, tag]);
+    }
+  }
+
   return (
     <div className="card">
       <div className="card__divider--vertical"></div>
@@ -43,7 +51,11 @@ export default function Card({
         <ul className="card__tags">
           {tags.map((tag, index) => {
             return (
-              <li key={index} className="card__tag" onClick={handleTagClick}>
+              <li
+                key={index}
+                className="card__tag"
+                onClick={() => handleTagClick(tag)}
+              >
                 {tag}
               </li>
             );

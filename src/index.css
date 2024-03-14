@@ -27,6 +27,7 @@ body {
   background-color: var(--light-grayish-cyan);
   min-height: 100vh;
   font-size: 15px;
+  text-size-adjust: 100%;
 }
 
 .header {

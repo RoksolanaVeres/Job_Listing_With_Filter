@@ -13,13 +13,6 @@ export default function App() {
     return filterTags.every((tag) => jobValues.includes(tag));
   });
 
-  function handleTagClick(e) {
-    let chosenTag = e.target.firstChild.data;
-    if (filterTags.indexOf(chosenTag) === -1) {
-      setFilterTags((currentTags) => [...currentTags, chosenTag]);
-    }
-  }
-
   function deleteTag(clickedTag) {
     setFilterTags((currentTags) =>
       [...currentTags].filter((tag) => tag !== clickedTag)
@@ -67,17 +60,12 @@ export default function App() {
             const tags = [job.role, job.level, ...job.languages, ...job.tools];
             return (
               <Card
-                logo={job.logo}
                 key={job.id}
-                company={job.company}
-                contract={job.contract}
-                featured={job.featured}
+                {...job}
                 newLabel={job.new}
-                position={job.position}
-                postedAt={job.postedAt}
-                location={job.location}
                 tags={tags}
-                handleTagClick={handleTagClick}
+                setFilterTags={setFilterTags}
+                filterTags={filterTags}
               />
             );
           })}
