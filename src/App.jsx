@@ -1,5 +1,6 @@
 import data from "./data.json";
 import Card from "./components/Card";
+import removeButtonImg from "./assets/images/icon-remove.svg";
 
 import { useState } from "react";
 
@@ -41,10 +42,7 @@ export default function App() {
                         className="button__tag--delete"
                         onClick={() => deleteTag(tag)}
                       >
-                        <img
-                          src="./src/assets/images/icon-remove.svg"
-                          alt="remove button"
-                        />
+                        <img src={removeButtonImg} alt="remove button" />
                       </button>
                     </div>
                   );
