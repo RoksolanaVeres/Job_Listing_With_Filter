@@ -1,11 +1,11 @@
 import data from "./data.json";
 import Card from "./components/Card";
 import removeButtonImg from "./assets/images/icon-remove.svg";
-
-import { useState } from "react";
+import { useContext } from "react";
+import { TagsContext } from "./contexts/TagsContext";
 
 export default function App() {
-  const [filterTags, setFilterTags] = useState([]);
+  const { filterTags, setFilterTags } = useContext(TagsContext);
 
   const jobs = data;
 
@@ -57,14 +57,7 @@ export default function App() {
           {jobsWithTags.map((job) => {
             const tags = [job.role, job.level, ...job.languages, ...job.tools];
             return (
-              <Card
-                key={job.id}
-                {...job}
-                newLabel={job.new}
-                tags={tags}
-                setFilterTags={setFilterTags}
-                filterTags={filterTags}
-              />
+              <Card key={job.id} {...job} newLabel={job.new} tags={tags} />
             );
           })}
         </div>

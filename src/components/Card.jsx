@@ -1,6 +1,7 @@
+import { useContext } from "react";
+import { TagsContext } from "../contexts/TagsContext";
+
 export default function Card({
-  filterTags,
-  setFilterTags,
   company,
   contract,
   featured,
@@ -12,6 +13,8 @@ export default function Card({
   logo,
   handleTagClick,
 }) {
+  const { filterTags, setFilterTags } = useContext(TagsContext);
+
   function handleTagClick(tag) {
     if (filterTags.indexOf(tag) === -1) {
       setFilterTags((currentTags) => [...currentTags, tag]);
