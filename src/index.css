@@ -90,7 +90,7 @@ body {
   border: none;
   background-color: var(--desaturated-dark-cyan);
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.15s ease-out;
 }
 
 .button__tag--delete:hover {
@@ -103,7 +103,7 @@ body {
   background-color: transparent;
   color: var(--dark-grayish-cyan);
   font-weight: 900;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.15s ease-out;
 }
 
 .button__tags--clear:hover {
@@ -233,7 +233,7 @@ body {
   height: fit-content;
   padding: 8px 10px;
   border-radius: 5px;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.15s ease-out;
 }
 
 .card__tag:hover {

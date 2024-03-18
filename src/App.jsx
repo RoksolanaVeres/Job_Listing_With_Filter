@@ -11,6 +11,7 @@ export default function App() {
 
   const jobsWithTags = jobs.filter((job) => {
     let jobValues = Object.values(job).flat();
+    console.log(job);
     return filterTags.every((tag) => jobValues.includes(tag));
   });
 
