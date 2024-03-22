@@ -1,8 +1,27 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+
 export const TagsContext = createContext(null);
 
 export function TagsContextProvider({ children }) {
   const [filterTags, setFilterTags] = useState([]);
+
+  //update filters based on query parameters in URL
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const filterParam = searchParams.get("filters");
+    if (filterParam) {
+      setFilterTags(filterParam.split(","));
+    }
+  }, []);
+
+  //update URL when filters change
+  useEffect(() => {
+    const searchParams = new URLSearchParams();
+    searchParams.set("filters", filterTags.join(","));
+    const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
+    window.history.replaceState(null, null, newUrl);
+  }, [filterTags]);
+
   const value = {
     filterTags,
     setFilterTags,
