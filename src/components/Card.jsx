@@ -18,6 +18,10 @@ export default function Card({
   function handleTagClick(tag) {
     if (filterTags.indexOf(tag) === -1) {
       setFilterTags((currentTags) => [...currentTags, tag]);
+    } else {
+      setFilterTags((currentTags) =>
+        currentTags.filter((currentTag) => currentTag !== tag)
+      );
     }
   }
 
@@ -56,7 +60,11 @@ export default function Card({
             return (
               <li
                 key={index}
-                className="card__tag"
+                className={
+                  filterTags.indexOf(tag) !== -1
+                    ? "card__tag card__tag--active"
+                    : "card__tag"
+                }
                 onClick={() => handleTagClick(tag)}
               >
                 {tag}

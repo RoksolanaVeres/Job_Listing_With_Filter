@@ -14,11 +14,14 @@ export function TagsContextProvider({ children }) {
     }
   }, []);
 
-  //update URL when filters change
+  // update URL when filters change
   useEffect(() => {
     const searchParams = new URLSearchParams();
-    searchParams.set("filters", filterTags.join(","));
-    const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
+    let newUrl = window.location.pathname;
+    if (filterTags.length > 0) {
+      searchParams.set("filters", filterTags.join(","));
+      newUrl = `${window.location.pathname}?${searchParams.toString()}`;
+    }
     window.history.replaceState(null, null, newUrl);
   }, [filterTags]);
 
