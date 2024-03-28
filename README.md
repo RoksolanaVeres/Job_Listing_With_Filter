@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- [Frontend Mentor solution](https://www.frontendmentor.io/solutions/responsive-landing-page-built-with-tailwind-css-EVKz84zD3N)
+- [Frontend Mentor solution](https://www.frontendmentor.io/solutions/responsive-job-listings-with-filtering-VzlVWcY3_S)
 - [GitHub repo](https://github.com/RoksolanaVeres/Job_Listing_With_Filter)
 - [Live Site](https://job-listing-with-filter-seven.vercel.app/)
 
